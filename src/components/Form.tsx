@@ -1,14 +1,24 @@
 export default function Form() {
   return (
-    <form className="mx-4">
+    <div className="mx-4">
       <div className="md:flex gap-4">
         <div className="w-[70vw] md:flex-col md:items-start flex flex-wrap justify-between items-center gap-1 my-2">
-          <label className="w-28">Top Text</label>
-          <input className="border border-slate-500 focus:border-slate-500 rounded-md px-2 py-1 w-full" type="text" placeholder="Shut Up" />
+          <label className="w-28" htmlFor="top-text">Top Text</label>
+          <input
+            id="top-text" 
+            className="border border-slate-500 focus:border-slate-500 rounded-md px-2 py-1 w-full" 
+            type="text" 
+            placeholder="Shut Up"
+          />
         </div>
         <div className="w-[70vw] md:flex-col md:items-start flex flex-wrap justify-between items-center gap-1 my-2">
-          <label className="w-28">Bottom Text</label>
-          <input className="border border-slate-500 focus:border-slate-500 rounded-md px-2 py-1 w-full" type="text" placeholder="And Take my money" />
+          <label className="w-28" htmlFor="bottom-text">Bottom Text</label>
+          <input
+            id="bottom-text"
+            className="border border-slate-500 focus:border-slate-500 rounded-md px-2 py-1 w-full" 
+            type="text" 
+            placeholder="And Take my money" 
+          />
         </div>
       </div>
       
@@ -18,6 +28,6 @@ export default function Form() {
           <img className="w-5" src="/imgs/image.png" />
         </div>
       </button>
-    </form>
+    </div>
   )
 }
