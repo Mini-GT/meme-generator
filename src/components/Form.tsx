@@ -1,6 +1,21 @@
+import { useState } from "react"
+import data from "../backend/imageData"
+import ImageContent from "./ImageContent"
+
 export default function Form() {
+  const [memeImg, setMemeImg] = useState("/imgs/meme.png")
+
+  function getRandomUrl(): void {
+    const randomNum = Math.floor(Math.random() * data.data.memes.length)
+    //gets random url from data
+    const memeUrl = data.data.memes[randomNum].url
+    console.log(memeUrl)
+    setMemeImg(prevUrl => prevUrl=memeUrl)
+  }
+
   return (
-    <div className="mx-4">
+    <form className="mx-4">
+
       <div className="md:flex gap-4">
         <div className="w-[70vw] md:flex-col md:items-start flex flex-wrap justify-between items-center gap-1 my-2">
           <label className="w-28" htmlFor="top-text">Top Text</label>
@@ -22,12 +37,20 @@ export default function Form() {
         </div>
       </div>
       
-      <button className="bg-gradient-to-r from-[#672280] to-[#A626D3] mt-2 border rounded-md w-full py-1">
+      <button 
+        className="bg-gradient-to-r from-[#672280] to-[#A626D3] mt-2 border rounded-md w-full py-1" 
+        onClick={getRandomUrl}
+        type="button"
+      >
         <div className="flex gap-2 items-center justify-center">
           <div className="text-white">Get a new meme image</div>
           <img className="w-5" src="/imgs/image.png" />
         </div>
       </button>
-    </div>
+
+      <ImageContent
+        imgUrl={memeImg}
+      />
+    </form>
   )
 }
