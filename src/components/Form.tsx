@@ -6,11 +6,11 @@ export default function Form() {
   const [memeImg, setMemeImg] = useState("/imgs/meme.png")
 
   function getRandomUrl(): void {
-    const randomNum = Math.floor(Math.random() * data.data.memes.length)
-    //gets random url from data
-    const memeUrl = data.data.memes[randomNum].url
-    console.log(memeUrl)
-    setMemeImg(prevUrl => prevUrl=memeUrl)
+      const randomNum = Math.floor(Math.random() * data.data.memes.length)
+      //gets random url from data
+      const memeUrl = data.data.memes[randomNum].url
+      console.log(memeUrl)
+      setMemeImg(prevUrl => prevUrl = memeUrl)
   }
 
   return (

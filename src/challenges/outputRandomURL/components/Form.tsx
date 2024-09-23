@@ -1,7 +1,6 @@
 import data from "../backend/imageData"
 
 export default function Form() {
-
   function getRandomUrl() {
     const randomNum = Math.floor(Math.random() * data.data.memes.length)
     //gets random url from data
