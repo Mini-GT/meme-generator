@@ -1,29 +1,29 @@
-/**
- * Challenge: Add an event listener to the button so when
- * it is clicked, it adds another thing to our array
- * 
- * Hint: use the array length + 1 to determine the number
- * of the "Thing" being added. Also, have you event listener
- * console.log(thingsArray) after adding the new item to the
- * array
- * 
- * Spoiler: the page won't update when new things get added
- * to the array!
- */
+import { useState } from "react"
 
 export default function App() {
-  const thingsArray = ["Thing 1", "Thing 2"]
+    /**
+     * Challenge: Convert the code below to use an array
+     * held in state instead of a local variable. Initialize 
+     * the state array with the same 2 items below
+     * 
+     * Don't worry about fixing `addItem` quite yet.
+     */
+  //const thingsArray = ["Thing 1", "Thing 2"]
+  const [thingsArray, setThingsArray] = useState(["Thing 1", "Thing 2"])
   const thingsElements = thingsArray.map(thing => <p key={thing}>{thing}</p>)
-  
-  function addThing(): undefined {
-    thingsArray.push(`Thing ${thingsArray.length + 1}`)
-    console.log(thingsArray)
+  //setThingsArray(1)
+
+
+  function addThing() {
+    
   }
       
   return (
-    <div className="m-4">
-        <button className="border p-2" onClick={addThing}>Add Item</button>
-        {thingsElements}
+    <div className="bg-[#70B85D] h-screen px-20 py-10">
+        <button className="border-4 p-4 w-full rounded-full text-white text-2xl" onClick={addThing}>Add Item</button>
+        <div className="text-white text-2xl my-4">
+          {thingsArray}
+        </div>
     </div>
   )
 }
