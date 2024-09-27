@@ -1,17 +1,16 @@
 export default function Star({
-  isFilled
+  isFilled,
+  onClick
 }: {
   isFilled: boolean
+  onClick: () => void;
 }) {
 
-  function toggleFavorite(){
-    
-  }
   return (
     <img
       src={isFilled ? "/svg/star-filled.svg" : "/svg/star.svg" }
       className="card--favorite w-8"
-      onClick={toggleFavorite}
+      onClick={onClick}
     />
   )
 }
