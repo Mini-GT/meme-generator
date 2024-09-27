@@ -1,4 +1,5 @@
 import {useState} from "react"
+import Star from "./Star"
 
 export default function App() {
     const [contact, setContact] = useState({
@@ -26,11 +27,7 @@ export default function App() {
             <article className="card">
                 <img src="/svg/profile.svg" className="card--image" />
                 <div className="card--info">
-                    <img
-                        src={contact.isFavorite ? "/svg/star-filled.svg" : "/svg/star.svg" }
-                        className="card--favorite w-8"
-                        onClick={toggleFavorite}
-                    />
+                    <Star isFilled={contact.isFavorite} />
                     <h2 className="card--name">
                       {`${contact.firstName} ${contact.lastName}`}
                     </h2>
