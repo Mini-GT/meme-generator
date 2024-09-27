@@ -3,14 +3,28 @@ import data from "../backend/imageData"
 import ImageContent from "./ImageContent"
 
 export default function Form() {
-  const [memeImg, setMemeImg] = useState("/imgs/meme.png")
+
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "/imgs/meme.png"
+  })
+
+  const [memesData, setMemesData] = useState(data)
+
+ //const [memeImg, setMemeImg] = useState("/imgs/meme.png")
 
   function getRandomUrl(): void {
-      const randomNum = Math.floor(Math.random() * data.data.memes.length)
+      // const randomNum = Math.floor(Math.random() * data.data.memes.length)
+      const randomNum = Math.floor(Math.random() * memesData.data.memes.length)
+
       //gets random url from data
-      const memeUrl = data.data.memes[randomNum].url
+      const memeUrl = memesData.data.memes[randomNum].url
       console.log(memeUrl)
-      setMemeImg(prevUrl => prevUrl = memeUrl)
+      setMeme(prevMeme => ({
+        ...prevMeme,
+        randomImage: memeUrl
+      }))
   }
 
   return (
@@ -49,7 +63,7 @@ export default function Form() {
       </button>
 
       <ImageContent
-        imgUrl={memeImg}
+        imgUrl={meme.randomImage}
       />
     </form>
   )
