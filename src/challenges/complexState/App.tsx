@@ -14,7 +14,7 @@ export default function App() {
      * using the properties of our state object above
      * (Ignore `isFavorite` for now)
      */
-    function toggleFavorite() {
+    function toggleFavorite(): void {
         //state rule: never change the original state value, therefore we must first copy the state value in this case an object, then we modify the value
         setContact(prevState => ({
             ...prevState, 
@@ -27,7 +27,7 @@ export default function App() {
             <article className="card">
                 <img src="/svg/profile.svg" className="card--image" />
                 <div className="card--info">
-                    <Star isFilled={contact.isFavorite} />
+                    <Star isFilled={contact.isFavorite} onClick={toggleFavorite}/>
                     <h2 className="card--name">
                       {`${contact.firstName} ${contact.lastName}`}
                     </h2>
