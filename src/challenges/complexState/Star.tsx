@@ -7,10 +7,17 @@ export default function Star({
 }) {
 
   return (
-    <img
-      src={isFilled ? "/svg/star-filled.svg" : "/svg/star.svg" }
-      className="card--favorite w-8"
+    <button 
       onClick={onClick}
-    />
+      aria-label={isFilled ? "Mark as favorite" : "Unmark as favorite"}
+      aria-pressed={isFilled}
+    >
+      <img
+        src={isFilled ? "/svg/star-filled.svg" : "/svg/star.svg"}
+        alt="star icon"
+        className="card--favorite w-8"
+      />
+    </button>
+    
   )
 }
