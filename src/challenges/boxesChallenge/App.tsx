@@ -1,8 +1,16 @@
 import { useState } from "react"
 import boxes from "./boxes"
 
-export default function App() {
+type DarkModeProps = {
+  darkMode: boolean
+}
+
+export default function App({darkMode}: DarkModeProps) {
   const [boxItem, setBoxItem] = useState(boxes)
+
+  const styles = {
+    backgroundColor: darkMode ? "#222222" : "#cccccc"
+  }
 
   /**
    * Challenge part 1:
@@ -20,6 +28,7 @@ export default function App() {
           <div 
             key={box.id}
             className="border border-black w-4 p-5 m-1"
+            style={styles}
           />
         )
       })}
