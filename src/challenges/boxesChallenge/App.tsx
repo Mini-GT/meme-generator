@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Box from "./Box"
 import boxes from "./boxes"
 
 type DarkModeProps = {
@@ -8,10 +9,6 @@ type DarkModeProps = {
 export default function App({darkMode}: DarkModeProps) {
   const [boxItem, setBoxItem] = useState(boxes)
 
-  const styles = {
-    backgroundColor: darkMode ? "#222222" : "#cccccc"
-  }
-
   /**
    * Challenge part 1:
    * 1. Initialize state with the default value of the
@@ -20,18 +17,30 @@ export default function App({darkMode}: DarkModeProps) {
    *    as an empty square (black border, transparent bg color)
    *    (Don't worry about using the "on" property yet)
    */
+
+  /**
+     * Challenge part 2:
+     * 1. Create a separate component called "Box" and
+     *    replace the `div` above with our <Box /> components
+     * 2. Pass the Box component a prop called `on` with the
+     *    value of the same name from the `boxes` objects
+     * 3. In the Box component, apply dynamic styles to determine
+     *    the backgroundColor of the box. If it's `on`, set the
+     *    backgroundColor to "#222222". If off, set it to "none"
+     */
   
   return (
     <main>
-      {boxItem.map((box) => {
+      {
+      boxItem.map((box) => {
         return (
-          <div 
-            key={box.id}
-            className="border border-black w-4 p-5 m-1"
-            style={styles}
-          />
+        <Box
+          key={box.id}
+          on={box.on}
+        />
         )
-      })}
+      })
+      }
     </main>
   )
 }
