@@ -48,7 +48,7 @@ export default function App({darkMode}: DarkModeProps) {
     //   id: number
     //   on: boolean
     // }
-    
+
     /*
       //1st approach
       setBoxItem(prevBox => {
@@ -82,16 +82,16 @@ export default function App({darkMode}: DarkModeProps) {
   return (
     <main>
       {
-      boxItem.map((box) => {
-        return (
-        <Box
-          key={box.id}
-          id={box.id}
-          on={box.on}
-          toggle={toggle}
-        />
-        )
-      })
+        boxItem.map((box) => {
+          return (
+          <Box
+            key={box.id}
+            id={box.id}
+            on={box.on}
+            // toggle={toggle}
+          />
+          )
+        })
       }
     </main>
   )
