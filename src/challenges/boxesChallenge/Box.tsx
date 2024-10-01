@@ -1,9 +1,13 @@
 import { useState } from "react"
 
 export default function Box({
+  id,
   on,
+  toggle
 } : {
+  id: number
   on: boolean
+  toggle: (id: number) => void
 }) {
 
   const [isOn, setIsOn] = useState(on)
@@ -28,7 +32,7 @@ export default function Box({
   }
 
   return (
-    <button onClick={isTogggled}>
+    <button onClick={() => toggle(id)}>
       <div
         className="border border-black w-4 p-5 m-1"
         style={styles}

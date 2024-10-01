@@ -29,6 +29,43 @@ export default function App({darkMode}: DarkModeProps) {
      *    backgroundColor to "#222222". If off, set it to "none"
      */
   
+
+  function toggle(id: number): void {
+    /**
+     * Challenge: use setSquares to update the
+     * correct square in the array.
+     * 
+     * Make sure not to directly modify state!
+     * 
+     * Hint: look back at the lesson on updating arrays
+     * in state if you need a reminder on how to do this
+     */
+
+
+    // below this code is not working anymore because react has now changed on how `useState` works
+    /*
+      type Boxes = {
+        id: number
+        on: boolean
+      }
+
+      setBoxItem(prevBox => {
+        const newBox: Boxes[] = []
+        prevBox.map((boxItem) => {
+          if(boxItem.id === id) {
+            const updatedBoxItem: Boxes = {
+              ...boxItem,
+              on: !boxItem.on
+            }
+            newBox.push(updatedBoxItem)
+          }else {
+            newBox.push(boxItem)
+          }
+        })
+        return newBox;
+      })
+    */
+  }
   return (
     <main>
       {
@@ -36,7 +73,9 @@ export default function App({darkMode}: DarkModeProps) {
         return (
         <Box
           key={box.id}
+          id={box.id}
           on={box.on}
+          toggle={toggle}
         />
         )
       })
