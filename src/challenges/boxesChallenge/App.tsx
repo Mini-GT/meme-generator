@@ -43,12 +43,14 @@ export default function App({darkMode}: DarkModeProps) {
 
 
     // below this code is not working anymore because react has now changed on how `useState` works
-    /*
-      type Boxes = {
-        id: number
-        on: boolean
-      }
 
+    // type Boxes = {
+    //   id: number
+    //   on: boolean
+    // }
+    
+    /*
+      //1st approach
       setBoxItem(prevBox => {
         const newBox: Boxes[] = []
         prevBox.map((boxItem) => {
@@ -65,6 +67,17 @@ export default function App({darkMode}: DarkModeProps) {
         return newBox;
       })
     */
+    //2nd approach
+    //same as 1st approach but lesser code (also doesnt work, of course it wont cause its just the same as 1st where it doesnt work)
+    /*
+      setBoxItem(prevBox => {
+        return prevBox.map(box => {
+          return box.id === id ? {...box, on: !box.on} : box
+        })
+      })
+    */
+
+    
   }
   return (
     <main>
