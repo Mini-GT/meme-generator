@@ -8,12 +8,13 @@ import { createRoot } from 'react-dom/client'
 // import App from './challenges/complexState/App'
 // import App from './challenges/passingStateAsProps/App'
 // import App from './challenges/boxesChallenge/App'
-import Page from './challenges/conditionalRendering/Part 2/Page'
+// import Page from './challenges/conditionalRendering/Part 2/Page'
+import Form from './testing/components/Form'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     {/* <App darkMode={false} /> */}
-    <Page />
+    <Form />
   </StrictMode>,
 )
