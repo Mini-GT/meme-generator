@@ -7,11 +7,13 @@ import { createRoot } from 'react-dom/client'
 // import App from './challenges/flippingStateBackAndForth/App'
 // import App from './challenges/complexState/App'
 // import App from './challenges/passingStateAsProps/App'
-import App from './challenges/boxesChallenge/App'
+// import App from './challenges/boxesChallenge/App'
+import Page from './challenges/conditionalRendering/Part 2/Page'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App darkMode={false} />
+    {/* <App darkMode={false} /> */}
+    <Page />
   </StrictMode>,
 )
