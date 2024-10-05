@@ -6,7 +6,8 @@ export default function FormInput() {
     firstName: "",
     lastName: "",
     email: "",
-    description: ""
+    description: "",
+    isFriendly: false,
   })
   /**
    * Challenge: add an email field/state to the form
@@ -19,14 +20,16 @@ export default function FormInput() {
   
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     //name for the `name` attribute and value for the value which is collected or accessed from our form html elements
-    const {name, value} = e.target;
+    //instead of `checked`, we use `type` then do guardclose in the setFormData cause if not, typescript will give us error
+    const {name, value, type /* checked */ } = e.target;
 
-    console.log(formData)
+    console.log(type)
 
     setFormData(prevFormData => {
       return {
         ...prevFormData,
-        [name]: value
+        //
+        [name]: type === 'checkbox' ? !prevFormData.isFriendly : value
       }
     })
 
@@ -35,7 +38,7 @@ export default function FormInput() {
   
   return (
     
-    <form className="flex flex-col justify-between w-[30vw]">
+    <form className="flex flex-col justify-between w-[30vw] m-2">
       <p>{formData.firstName}</p>
       <input
         type="text"
@@ -71,6 +74,35 @@ export default function FormInput() {
         name="description"
         value={formData.description}
       />
+      
+      <div>
+        {/* 
+        
+        2 ways to use input label: either separate input and label then use attribute `htmlFor and id` or put the input inside the label(example 2) 
+        
+        why do this? so that when the user clicked on the `Are you friendly?` it will also be connected to the checkbox rather than pointing the cursor exactly at the checkbox
+        
+        */}
+        <input 
+          type="checkbox"
+          id="isFriendly"
+          onChange={handleChange}
+          name="isFriendly"
+          //in checkbox, instead of value, we use `checked`
+          checked={formData.isFriendly}
+        />
+        <label htmlFor="isFriendly">Are you friendly?</label>
+      </div>
+
+      <div>
+        {/* example 2 */}
+        <label>
+          <input 
+            type="checkbox"
+          />
+          Are you friendly?
+        </label>
+      </div>
     </form>
     
   )
