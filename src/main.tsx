@@ -10,7 +10,7 @@ import { createRoot } from 'react-dom/client'
 // import App from './challenges/boxesChallenge/App'
 // import Page from './challenges/conditionalRendering/Part 2/Page'
 // import Form from './testing/components/Form'
-import FormInput from './challenges/formInput/part 2/Input'
+import FormInput from './challenges/formInput/part 3/FormInput'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
