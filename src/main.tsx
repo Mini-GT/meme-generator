@@ -10,12 +10,14 @@ import { createRoot } from 'react-dom/client'
 // import App from './challenges/boxesChallenge/App'
 // import Page from './challenges/conditionalRendering/Part 2/Page'
 // import Form from './testing/components/Form'
-import FormInput from './challenges/formInput/part 3/FormInput'
+// import FormInput from './challenges/formInput/part 3/FormInput'
+// import Radio from './challenges/formInput/radio/Radio'
+import Select from './challenges/formInput/select and input/Select'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     {/* <App darkMode={false} /> */}
-    <FormInput />
+    <Select />
   </StrictMode>,
 )
