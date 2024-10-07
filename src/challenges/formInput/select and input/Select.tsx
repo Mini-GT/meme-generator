@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState, useId } from "react"
+
 export default function Select() {
   const [formData, setFormData] = useState(
     {
@@ -11,6 +12,8 @@ export default function Select() {
       favColor: ""
     }
   )
+
+  const id = useId();
   // console.log(formData.favColor)
   
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement |HTMLSelectElement>) {
@@ -33,89 +36,96 @@ export default function Select() {
   return (
     // when a button is found inside the form, it will trigger the form handler onSubmit={}
     <form onSubmit={handleSubmit}>
+      <label htmlFor={id + '-firstName'}>First Name</label>
       <input
         type="text"
-        placeholder="First Name"
         onChange={handleChange}
         name="firstName"
         value={formData.firstName}
+        id={id + '-firstName'}
       />
+
+      <label htmlFor={id + '-lastName'}>Last Name</label>
       <input
         type="text"
-        placeholder="Last Name"
         onChange={handleChange}
         name="lastName"
         value={formData.lastName}
+        id={id + '-lastName'}
       />
+
+      <label htmlFor={id + '-email'}>Email</label>
       <input
         type="email"
-        placeholder="Email"
         onChange={handleChange}
         name="email"
         value={formData.email}
+        id={id + '-email'}
       />
+
+      <label htmlFor={id + '-comments'}>Comments</label>
       <textarea 
-        value={formData.comments}
-        placeholder="Comments"
         onChange={handleChange}
         name="comments"
+        value={formData.comments}
+        id={id + '-comments'}
       />
       <input 
-        type="checkbox" 
-        id="isFriendly" 
-        checked={formData.isFriendly}
         onChange={handleChange}
         name="isFriendly"
+        type="checkbox"  
+        checked={formData.isFriendly}
+        id={id + "-isFriendly"}
       />
-      <label htmlFor="isFriendly">Are you friendly?</label>
+      <label htmlFor={id + "-isFriendly"}>Are you friendly?</label>
       <br />
       <br />
       
       <fieldset>
         <legend>Current employment status</legend>
-        <input 
-          type="radio"
-          id="unemployed"
-          name="employment"
+        <input
+          onChange={handleChange}
+          name="employment" 
+          type="radio"         
           value="unemployed"
           checked={formData.employment === "unemployed"}
-          onChange={handleChange}
+          id={id + "-unemployed"}
         />
-        <label htmlFor="unemployed">Unemployed</label>
+        <label htmlFor={id + "-unemployed"}>Unemployed</label>
         <br />
         
-        <input 
+        <input
+          onChange={handleChange}
+          name="employment" 
           type="radio"
-          id="part-time"
-          name="employment"
-          value="part-time"
+          value="part-time"         
           checked={formData.employment === "part-time"}
-          onChange={handleChange}
+          id={id + "-part-time"}
         />
-        <label htmlFor="part-time">Part-time</label>
+        <label htmlFor={id + "-part-time"}>Part-time</label>
         <br />
         
-        <input 
-          type="radio"
-          id="full-time"
-          name="employment"
+        <input
+          onChange={handleChange}
+          name="employment" 
+          type="radio"       
           value="full-time"
           checked={formData.employment === "full-time"}
-          onChange={handleChange}
+          id={id + "-full-time"}
         />
-        <label htmlFor="full-time">Full-time</label>
+        <label htmlFor={id + "-full-time"}>Full-time</label>
         <br />
       </fieldset>
       <br />
       
-      <label htmlFor="favColor">What is your favorite color?</label>
+      <label htmlFor={id + "-favColor"}>What is your favorite color?</label>
       <br />
       <select 
         className="border"
-        id="favColor"
+        onChange={handleChange}
         name="favColor"
         value={formData.favColor}
-        onChange={handleChange}
+        id={id + "-favColor"}
       >
         <option value="">-- Choose --</option>
         <option value="red">Red</option>
