@@ -12,12 +12,13 @@ import { createRoot } from 'react-dom/client'
 // import Form from './testing/components/Form'
 // import FormInput from './challenges/formInput/part 3/FormInput'
 // import Radio from './challenges/formInput/radio/Radio'
-import Select from './challenges/formInput/select and input/Select'
+// import Select from './challenges/formInput/select and input/Select'
+import App from './challenges/formInput/final challenge/App'
 import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     {/* <App darkMode={false} /> */}
-    <Select />
+    <App />
   </StrictMode>,
 )
