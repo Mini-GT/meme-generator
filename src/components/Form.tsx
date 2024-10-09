@@ -13,7 +13,8 @@ export default function Form() {
 
   console.log(meme)
 
-  const [memesData, setMemesData] = useState(data)
+  //const [memesData, setMemesData] = useState(data)
+  const memesData = data
 
  //const [memeImg, setMemeImg] = useState("/imgs/meme.png")
 
