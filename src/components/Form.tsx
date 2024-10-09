@@ -33,7 +33,6 @@ export default function Form() {
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const {name, value} = e.target;
-    console.log(name)
     setMeme(prevMeme => ({
       ...prevMeme,
       [name]: value
