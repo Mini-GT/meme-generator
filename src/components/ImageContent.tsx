@@ -13,7 +13,10 @@ export default function ImageContent({
 
   return (
     <div className="m-4 flex justify-center items-center">
-      <img className="w-3/4" src={imgUrl} alt="meme" />
+      {
+      //not showing any image if the url is empty
+      imgUrl && <img className="w-3/4" src={imgUrl} alt="meme" />
+      } 
       <h2 className="meme--text top-0">{memeData.topText}</h2>
       <h2 className="meme--text bottom-0">{memeData.bottomText}</h2>
     </div>
