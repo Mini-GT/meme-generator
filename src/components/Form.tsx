@@ -1,34 +1,49 @@
-import { useState } from "react"
-import data from "../backend/imageData"
+import { useState, useEffect } from "react"
 import ImageContent from "./ImageContent"
-import { MemeTypes } from "./types"
+import { MemeTypes, MemeApiDataType } from "./types"
 
 export default function Form() {
+
+  const [allMemesData, setAllMemesData] = useState<MemeApiDataType[]>([])
 
   const [meme, setMeme] = useState<MemeTypes>({
     topText: "",
     bottomText: "",
-    randomImage: "http://i.imgflip.com/1bij.jpg"
+    randomImage: "",
   })
 
-  console.log(meme)
+  useEffect(() => {
+    const fetchData = async (url: string) => {
+      try {
+        const response = await fetch(url)
+        const res = await response.json()
+        setAllMemesData(res.data.memes)
+      } catch (err) {
+        console.error(err)
+      }
+    }
 
-  //const [memesData, setMemesData] = useState(data)
-  const memesData = data
+    fetchData("https://api.imgflip.com/get_memes");
+  }, [])
+
+  // const memesData = data;
 
  //const [memeImg, setMemeImg] = useState("/imgs/meme.png")
 
   function getRandomUrl(): void {
-      // const randomNum = Math.floor(Math.random() * data.data.memes.length)
-      const randomNum = Math.floor(Math.random() * memesData.data.memes.length)
+    if(!allMemesData) {
+      throw console.error("empty data")
+    }
+    // const randomNum = Math.floor(Math.random() * data.data.memes.length)
+    const randomNum = Math.floor(Math.random() * allMemesData.length)
 
-      //gets random url from data
-      const memeUrl = memesData.data.memes[randomNum].url
-      console.log(memeUrl)
-      setMeme(prevMeme => ({
-        ...prevMeme,
-        randomImage: memeUrl
-      }))
+    //gets random url from data
+    const memeUrl = allMemesData[randomNum]
+    console.log(memeUrl)
+    setMeme(prevMeme => ({
+      ...prevMeme,
+      randomImage: memeUrl.url
+    }))
   }
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
