@@ -16,7 +16,7 @@ export default function Select() {
   const id = useId();
   // console.log(formData.favColor)
   
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement |HTMLSelectElement>) {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
     const {name, value, type} = e.target
     setFormData(prevFormData => {
       
