@@ -22,13 +22,11 @@ export default function FormInput() {
     //name for the `name` attribute and value for the value which is collected or accessed from our form html elements
     //instead of `checked`, we use `type` then do guardclose in the setFormData cause if not, typescript will give us error
     const {name, value, type /* checked */ } = e.target;
-
     console.log(type)
 
     setFormData(prevFormData => {
       return {
         ...prevFormData,
-        //
         [name]: type === 'checkbox' ? !prevFormData.isFriendly : value
       }
     })
